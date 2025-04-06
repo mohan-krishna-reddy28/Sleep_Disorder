@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Real-Time Detection and Classification of Sleep Disorders Using Deep Learning for Improved Health Monitoring</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .bgded {
+            background-image: url('{% static "images/01.avif" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px; /* Ensure top padding for spacing */
+        }
+        .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 30px; /* Add margin to create space below the heading */
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .input100 {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="bgded">
+        <h3 class="heading">Real-Time Detection and Classification of Sleep Disorders Using Deep Learning for Improved Health Monitoring</h3>
+        <div class="login-container">
+            <form action='input' method="POST" enctype="multipart/form-data" class="login100-form validate-form">
+                {% csrf_token %}
+                <label for="name">Name</label>
+                <input class="input100" type="text" name="name" id="name" required>
+                <label for="password">Password</label>
+                <input class="input100" type="password" name="password" id="password" required>
+                <button type="submit" class="btn">LOGIN</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+    <script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>

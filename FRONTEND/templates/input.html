@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sleep Disorder Prediction - Input</title>
+    <style>
+        body {
+            background-image: url('{% static "images/02.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+        }
+        label, input, select, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Details for Sleep Disorder Prediction</h1>
+        <form method="POST" action="{% url 'output' %}">
+            {% csrf_token %}
+            <label for="gender">Gender:</label>
+            <select name="gender" required>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" name="age" required>
+
+            <label for="occupation">Occupation:</label>
+            <select name="occupation" required>
+                <option value="0">Student</option>
+                <option value="1">Employee</option>
+                <option value="2">Self-employed</option>
+            </select>
+
+            <label for="sleep_duration">Sleep Duration (hours):</label>
+            <input type="number" step="0.1" name="sleep_duration" required>
+
+            <label for="quality_of_sleep">Quality of Sleep (1-10):</label>
+            <input type="number" name="quality_of_sleep" min="1" max="10" required>
+
+            <label for="physical_activity">Physical Activity Level:</label>
+            <input type="number" name="physical_activity_level" required>
+
+            <label for="stress_level">Stress Level (1-10):</label>
+            <input type="number" name="stress_level" min="1" max="10" required>
+
+            <label for="bmi_category">BMI Category:</label>
+            <select name="bmi_category" required>
+                <option value="0">Underweight</option>
+                <option value="1">Normal weight</option>
+                <option value="2">Overweight</option>
+                <option value="3">Obese</option>
+            </select>
+
+            <label for="blood_pressure">Blood Pressure:</label>
+            <select name="blood_pressure" required>
+                <option value="0">Low</option>
+                <option value="1">Normal</option>
+                <option value="2">High</option>
+            </select>
+
+            <label for="heart_rate">Heart Rate:</label>
+            <input type="number" name="heart_rate" required>
+
+            <label for="daily_steps">Daily Steps:</label>
+            <input type="number" name="daily_steps" required>
+
+            <label for="algorithm">Choose Algorithm:</label>
+            <select name="algorithm" required>
+                <option value="RF">Random Forest</option>
+                <option value="CNN">CNN</option>
+                <option value="LSTM">LSTM</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

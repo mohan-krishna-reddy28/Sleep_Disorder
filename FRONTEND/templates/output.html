@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sleep Disorder Prediction - Output</title>
+    {% load static %}
+    <style>
+        body {
+            background-image: url('{% static "images/03.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            padding: 40px 50px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            font-size: 28px;
+            color: #FFD700;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        {% if prediction %}
+            <p class="highlight"> {{ prediction }}</p>
+        {% else %}
+            <p>No prediction available. Please provide valid inputs.</p>
+        {% endif %}
+    </div>
+    <a href="{% url 'home' %}" class="back-button">Back to Home Page</a>
+</body>
+</html>
