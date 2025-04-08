@@ -61,13 +61,22 @@
     {% endif %}
 
     <p style="margin-top: 30px; color: #d00909; font-size: 18px;"><strong>📝 Note:</strong> This is a machine learning-based prediction and should not replace professional medical advice. If symptoms persist, consider consulting a certified sleep specialist.</p>
-
-    <div style="margin-top: 40px; text-align: right;">
-        <a href="{% url 'home' %}" style="text-decoration: none;">
-            <button style="background: linear-gradient(to right, #00b4db, #0083b0); color: white; font-size: 18px; padding: 12px 25px; border: none; border-radius: 10px; cursor: pointer;">
-                🏠 Back to Home
-            </button>
-        </a>
+    
+    <div class="but" style="text-align: right;">
+        <span style="margin: 40px 10px; text-align: right;">
+            <a href="{% url 'base' %}" style="text-decoration: none;">
+                <button style="background: linear-gradient(to right, #00b4db, #0083b0); color: white; font-size: 18px; padding: 12px 25px; border: none; border-radius: 10px; cursor: pointer;">
+                    🏠 Back to Home
+                </button>
+            </a>
+        </span>
+        <span style="margin: 40px 10px; text-align: right;">
+            <a href="{% url 'home' %}" style="text-decoration: none;">
+                <button style="background: linear-gradient(to right, #00b4db, #0083b0); color: white; font-size: 18px; padding: 12px 25px; border: none; border-radius: 10px; cursor: pointer;">
+                    🏠 Back to LOGIN Page
+                </button>
+            </a>
+        </span>
     </div>
 </div>
 {% endblock %}
