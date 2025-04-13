@@ -117,6 +117,7 @@ import numpy as np
 from django.shortcuts import render
 from django import forms
 from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
 # Form for prediction
 class SleepForm(forms.Form):
@@ -148,19 +149,34 @@ lstm_model = load_model(r'C:\Users\Mohan\OneDrive\Desktop\SLEEP_DISORDER\FRONTEN
 scaler = load_model(r'C:\Users\Mohan\OneDrive\Desktop\SLEEP_DISORDER\FRONTEND\scaler.pkl')
 disorder_mapping = {0: 'None', 1: 'Sleep Apnea', 2: 'Insomnia'}
 
-def home(request):
-    return render(request, 'index.html')
+from django.shortcuts import render, redirect
 
-def input(request):
+def home(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         password = request.POST.get('password')
-        accounts = read_file('account.txt')
-        for acc in accounts:
-            if acc[0].lower() == name.lower() and acc[1] == password:
-                return render(request, 'input.html', {'form': SleepForm()})
-        return HttpResponse('Wrong Password or Name', content_type='text/plain')
-    return render(request, 'input.html', {'form': SleepForm()})
+
+        try:
+            with open('account.txt', 'r') as f:
+                accounts = [line.strip().split() for line in f.readlines()]
+        except FileNotFoundError:
+            return render(request, 'index.html', {'error': 'Account file not found!'})
+
+        for account in accounts:
+            if len(account) >= 2 and account[0] == name and account[1] == password:
+                # Login successful — redirect to base
+                return redirect('base')
+
+        # If no match found
+        return render(request, 'index.html', {'error': 'Wrong name or password'})
+
+    return render(request, 'index.html')
+
+
+def input(request):
+    form = SleepForm()
+    return render(request, 'input.html', {'form': form})
+
 
 def output(request):
     if request.method == 'POST':
@@ -198,5 +214,8 @@ def about(request):
 def team(request):
     return render(request, 'team.html')
 
+
 def base(request):
     return render(request, 'base.html')
+
+
