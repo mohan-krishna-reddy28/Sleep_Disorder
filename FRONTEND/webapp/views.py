@@ -143,10 +143,10 @@ def read_file(file_name):
     with open(file_name, 'r') as f:
         return [line.strip().split() for line in f]
 
-rf_model = load_model(r'C:\Users\Mohan\OneDrive\Desktop\SLEEP_DISORDER\FRONTEND\RF_Sleep.pkl')
-cnn_model = load_model(r'C:\Users\Mohan\OneDrive\Desktop\SLEEP_DISORDER\FRONTEND\CNN_Sleep.pkl')
-lstm_model = load_model(r'C:\Users\Mohan\OneDrive\Desktop\SLEEP_DISORDER\FRONTEND\LSTM_Sleep.pkl')
-scaler = load_model(r'C:\Users\Mohan\OneDrive\Desktop\SLEEP_DISORDER\FRONTEND\scaler.pkl')
+rf_model = load_model(r'C:\Users\Mohan\FinalYearProject\SLEEP_DISORDER\FRONTEND\RF_Sleep.pkl')
+cnn_model = load_model(r'C:\Users\Mohan\FinalYearProject\SLEEP_DISORDER\FRONTEND\CNN_Sleep.pkl')
+lstm_model = load_model(r'C:\Users\Mohan\FinalYearProject\SLEEP_DISORDER\FRONTEND\LSTM_Sleep.pkl')
+scaler = load_model(r'C:\Users\Mohan\FinalYearProject\SLEEP_DISORDER\FRONTEND\scaler.pkl')
 disorder_mapping = {0: 'None', 1: 'Sleep Apnea', 2: 'Insomnia'}
 
 from django.shortcuts import render, redirect
