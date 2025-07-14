@@ -1,15 +1,13 @@
+# Exported from Render on 2025-07-14T16:41:52Z
 services:
-  - type: web
-    name: sleep-disorder-app
-    env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn self.wsgi:application
-    runtime: python3.10
-    branch: main
-    rootDir: FRONTEND
-    envVars:
-      - key: DJANGO_SECRET_KEY
-        value: _4_kzz_xi9c2mg&5&mrs#rv-#)4ho+kq58ebm3+(_7g)02o9qd
-      - key: DEBUG
-        value: False
+- type: web
+  name: Sleep-Disorder-Detection
+  runtime: python
+  repo: https://github.com/mohan-krishna-reddy28/Sleep_Disorder
+  plan: free
+  region: oregon
+  buildCommand: pip install -r requirements.txt
+  startCommand: gunicorn self.wsgi:application
+  autoDeployTrigger: commit
+  rootDir: FRONTEND
+version: "1"
