@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: sleep-disorder-app
+    env: python
+    rootDir: FRONTEND # Crucial for your project structure
+
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput # Recommended for Django static files
+
+    startCommand: "gunicorn webapp.wsgi:application --bind 0.0.0.0 --workers 4" # Adjust workers as needed
+
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: webapp.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        # Configure your database URL here
+      - key: WEB_CONCURRENCY
+        value: 4
+
+    healthCheckPath: /healthz
