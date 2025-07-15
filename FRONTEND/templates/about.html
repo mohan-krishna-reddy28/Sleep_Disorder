@@ -5,6 +5,12 @@
 {% block nav_title %}About Dataset & Model{% endblock %}
 
 {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>About - Sleep Disorder Detection</title>
+    <link rel="shortcut icon" href="{% static 'images/moon.png' %}" type="image/png">
+    <!-- Your other CSS/JS links -->
+</head>
 <h1><i class="fas fa-database"></i> Sleep Disorder Prediction - Dataset Description</h1>
 
 <h2>📝 Input Fields Description</h2>
@@ -83,21 +89,21 @@
 <hr>
 
 <h2>📊 Confusion Matrix</h2>
-<img src="{% static 'images\CNN.png' %}" alt="Confusion Matrix" style="width: 47%; border: 1px solid #ccc; border-radius: 10px; ">
+<img src="{% static 'images/CNN.png' %}" alt="Confusion Matrix" style="width: 47%; border: 1px solid #ccc; border-radius: 10px; ">
 
 <p>
     The confusion matrix above shows the performance of our classification model in detecting three categories: <strong>None</strong>, <strong>Sleep Apnea</strong>, and <strong>Insomnia</strong>.
     Diagonal values show correct predictions. For example, it correctly classified 81 Insomnia cases. Minor misclassifications like 5 “None” predicted as “Sleep Apnea” indicate areas for model improvement.
 </p>
 <h2>🌳 Random Forest Model</h2>
-<img src="{% static 'images\RandomForest.png' %}" alt="Random Forest Feature Importance" style="width: 45%; border: 1px solid #ccc; border-radius: 10px;">
+<img src="{% static 'images/RandomForest.png' %}" alt="Random Forest Feature Importance" style="width: 45%; border: 1px solid #ccc; border-radius: 10px;">
 
 <p>
     Random Forest is an ensemble machine learning model that builds multiple decision trees and combines their results for a more accurate and stable prediction. It handles both numerical and categorical data well and reduces overfitting. In our application, it helps classify sleep disorders based on multiple health features. Feature importance from Random Forest reveals that factors like <strong>Stress Level, Sleep Duration, and Heart Rate</strong> play a crucial role in identifying disorders.
 </p>
 
 <h2>📈 LSTM Model Training Graph</h2>
-<img src="{% static 'images\LSTM.png' %}" alt="LSTM Training Graph" style="width: 47%; border: 1px solid #ccc; border-radius: 10px;">
+<img src="{% static 'images/LSTM.png' %}" alt="LSTM Training Graph" style="width: 47%; border: 1px solid #ccc; border-radius: 10px;">
 
 <p>
     This graph displays the performance of the LSTM model over multiple training epochs. It shows how well the model is learning from the data. As training progresses, we see accuracy improving and loss reducing – indicating effective learning. The closeness between training and validation lines reflects good generalization, and no signs of overfitting.

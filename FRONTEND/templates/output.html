@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}Prediction Result{% endblock %}
 {% block nav_title %}Prediction Output{% endblock %}
 
 {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Output - Sleep Disorder Detection</title>
+    <link rel="shortcut icon" href="{% static 'images/moon.png' %}" type="image/png">
+    <!-- Your other CSS/JS links -->
+</head>
+
 <div style="color: white; text-align: left;">
     <h2 style="font-size: 28px; color: #273a4e; text-align: center;">🧾 Your Sleep Disorder Prediction:</h2>
     <p style="font-size: 22px;color: black;text-align: center;"><strong>Prediction:</strong> {{ prediction }}</p>
